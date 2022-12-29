@@ -23,12 +23,14 @@ function codigo(qLinhas, qColunas) {
 
     let escolha = document.querySelector('input[name="estilo"]:checked').value; 
     
+    tituloResultado = "<h3>Tabela LaTex:</h3>";
   
     resultado = `<textarea rows='${qLinhas+11}' cols='40' maxlength='500' class='codLatex'>`;
     resultado += codigoLatex(qLinhas, qColunas, escolha);
     resultado+="</textarea>";
 
-    document.querySelector('#table-latex').innerHTML = resultado;
+
+    document.querySelector('#table-latex').innerHTML = tituloResultado + resultado;
   
 }
 
