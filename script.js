@@ -18,9 +18,9 @@ function enviarParametroTabela(){
     campo = "<fieldset>";
     campo+="<legend>Estilo da tabela:</legend>"
     campo += `<input type="radio" name="estilo" id="tab" value="t" checked>`;
-    campo += `<label for="tab">Tabela</label>`;
+    campo += `<label for="tab">&#9636 Tabela </label>`;
     campo += `<input type="radio" name="estilo" id="quad" value="q">`;
-    campo += `<label for="quad">Quadro</label>  <br>`;
+    campo += `<label for="quad">&#9638 Quadro </label>  <br>`;
     campo += `<input type="checkbox" name="propTab" id="cabecalhoTab" value="cabecalho">`;
     campo += `<label for="cabecalhoTab">Possui cabeçalho</label> <br>`;
     campo += `<input type="checkbox" name="propTab" id="primLinhaNeg" value="primLinha">`;
@@ -78,10 +78,16 @@ function codigo(qLinhas, qColunas) {
                 if(pl && l == 0){
                     valor+="\\textbf{";
                 }
+                if(pc && c == 0){
+                    valor+="\\textbf{";
+                }
 
                 valor += document.querySelector(`#v${l}${c}`).value
 
                 if(pl &&  l == 0) {
+                    valor+="}";
+                }
+                if(pc && c == 0){
                     valor+="}";
                 }
 
