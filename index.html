@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../_CSS/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Tabela Latex</title>
+</head>
+<body>
+    <header>
+        <h1>Construtor tabela LaTex</h1>
+    </header>
+    <main>
+        <section class="tituloResumoDesafio">
+            <h2>Insira as informações abaixo</h2>
+        </section>
+        <section class="secaoDevPrograma">
+            <div id="entradaDados">
+                <form>
+                    Quantidade de linhas:                    
+                    <input type="number" id="linhas" min="0" max="99" step="1"><br>
+                    Quantidade de colunas:
+                    <input type="number" id="colunas" min="0" max="99" step="1">
+                    <input type="button" value="Montar tabela" onclick="enviarParametroTabela()">
+                </form>
+            </div>
+
+            <hr>
+
+            <div id="respostaDados">
+                    
+            </div>
+
+            <div id="bt-converter">
+                <input type="checkbox" name="" id="cabecalhoTab">
+                <label for="cabecalhoTab">Possui</label> <br>
+                <input type="checkbox" name="" id="primLinhaNeg">
+                <label for="primLinhaNeg">Primeira linha em negrito</label> <br>
+                <input type="checkbox" name="" id="primColunaNeg">
+                <label for="primColunaNeg">Primeira coluna em negrito</label> <br>
+                
+
+            </div>
+            <div id="table-latex">
+
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
