@@ -16,9 +16,9 @@ function enviarParametroTabela(){
 
 
     campo = "<fieldset>";
-    campo += `<input type="radio" name="estilo" id="tab" checked>`;
+    campo += `<input type="radio" name="estilo" id="tab" value="t" checked>`;
     campo += `<label for="tab">Tabela</label>`;
-    campo += `<input type="radio" name="estilo" id="quad">`;
+    campo += `<input type="radio" name="estilo" id="quad" value="q">`;
     campo += `<label for="quad">Quadro</label>`;
     campo += `</fieldset>`;
     
@@ -38,8 +38,6 @@ function limparCampos(){
 
 
 function codigo(qLinhas, qColunas) {
-
-
   
     resultado = "<textarea rows='10' cols='40' maxlength='500'>";
 
@@ -72,12 +70,7 @@ function header(colunas) {
 
     let titulo = document.querySelector('#captionTabela').value;
 
-    col = 0;
-    formatoTabular = "";
-    do {
-        formatoTabular+='c';
-        ++col;
-    } while(col < colunas);
+    formatoTabular = tabEstilo(colunas);
 
     _header =  "\\begin{table}[h]\n";
     _header += "\\centering\n";
@@ -94,4 +87,28 @@ function final() {
     _final += "\\end{table}\n";
 
     return _final;
+}
+
+function tabEstilo(colunas) {
+    let _escolha = document.querySelector('input[name="estilo"]:checked').value;
+    _formatoTabular = "";
+    _estilo = "";
+    
+    if(_escolha == "t") {
+        _estilo = "c";
+    }
+    else if (_escolha == "q") {
+        _estilo = "c|";
+        _formatoTabular+="|";
+    }
+
+
+    col = 0;
+    do {
+        _formatoTabular+= _estilo;
+        ++col;
+    } while(col < colunas);
+
+    return _formatoTabular;
+
 }
