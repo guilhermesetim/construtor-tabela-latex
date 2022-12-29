@@ -102,7 +102,7 @@ function codigo(qLinhas, qColunas) {
         
 
         resultado+=" \\\\ ";
-        if(l == 0 && cab) {
+        if(l == 0 && cab && _escolha == "t") {
             resultado+="\\hline";
         }
         if(_escolha == "q" && l < qLinhas-1)
