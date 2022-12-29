@@ -1,11 +1,16 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 :root{
     --corBranco: #ffffff;
     --corPreto: #000000;
-    --corAzulEscuro: #144F66;
-    --corAzulClaro: #CDF4F4;
+    --corAzulEscuro: #1e7705;
+    --corAzulClaro: #F4F5F8;
     --corSombra: rgba(0, 0, 0, 0.35);
 }
 body{
@@ -30,30 +35,45 @@ main{
     max-width: 700px;
     display: block;
 }
-.tituloResumoDesafio{
-    background-color: var(--corBranco);
-    font-size: 30px;
-    max-width: 500px;
-    margin: 0px auto 15px auto;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0px 1px 5px var(--corSombra);
-}
-.tituloResumoDesafio > h2{
-    padding: 10px 20px;
-}
+
 .secaoDevPrograma{
+    padding: 20px;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#entradaDados{
     background-color: var(--corBranco);
     padding: 20px;
+    max-width: 500px;
     margin: 0px auto;
-    max-width: 600px;
-    min-height: 100px;
     border-radius: 15px;
     box-shadow: 2px 2px 10px var(--corSombra);
 }
-#entradaDados{
-    margin-bottom: 30px;
+.headerInfo {
+    margin-right: 17px;
 }
-#respostaDados{
-    margin-top: 15px;
+.inputsText {
+    margin-top: 0px;
+}
+.fieldEstiloTab {
+    margin-top: 20px;
+}
+.estiloTabJs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.codLatex {
+    display: block;
+    margin: 15px auto 0px auto;
+}
+footer{
+    text-align: center;
 }

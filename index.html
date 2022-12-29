@@ -10,41 +10,41 @@
 </head>
 <body>
     <header>
-        <h1>Construtor tabela LaTex</h1>
+        <h1>Construtor de tabela LaTex</h1>
     </header>
     <main>
-        <section class="tituloResumoDesafio">
-            <h2>Insira as informações abaixo</h2>
-        </section>
-        <section class="secaoDevPrograma">
-            <div id="entradaDados">
-                <form>
-                    Quantidade de linhas:                    
-                    <input type="number" id="linhas" min="0" max="99" step="1"><br>
-                    Quantidade de colunas:
+        <section id="entradaDados">
+            <form>
+                <div>
+                    <p class="inputsText">
+                    <label for="linhas" class='headerInfo'>Quantidade de linhas:</label>                                       
+                    <input type="number" id="linhas" min="0" max="99" step="1">
+                    </p>
+                    <p class="inputsText">
+                   <label for="colunas"> Quantidade de colunas:</label>
                     <input type="number" id="colunas" min="0" max="99" step="1">
+                    </p>
+                </div>
+                <div class="btn-mostrar-tabela">
                     <input type="button" value="Montar tabela" onclick="enviarParametroTabela()">
-                </form>
+                </div>
+            </form>
+            
+        </section>
+
+        <section class="secaoDevPrograma">
+            
+            <div id="respostaDados">               
             </div>
 
-            <hr>
-
-            <div id="respostaDados">
-                    
-            </div>
-
-            <div id="bt-converter">
-                
-                
-
-            </div>
             <div id="table-latex">
-
             </div>
+
         </section>
     </main>
     <footer>
-
+        Desenvolvido por: <a href="http://https://github.com/guilhermesetim">Guilherme Setim</a>
+        <img src="github.svg" alt="GitHub Logo" width="30" height="30">
     </footer>
     <script src="script.js"></script>
 </body>
