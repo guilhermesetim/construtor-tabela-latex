@@ -74,7 +74,16 @@ function codigo(qLinhas, qColunas) {
     resultado+= header(qColunas, _escolha);
     for(l = 0; l < qLinhas; ++l) {
             for(c = 0; c < qColunas; ++c) {
-                let valor = document.querySelector(`#v${l}${c}`).value
+                let valor = "";
+                if(pl && l == 0){
+                    valor+="\\textbf{";
+                }
+
+                valor += document.querySelector(`#v${l}${c}`).value
+
+                if(pl &&  l == 0) {
+                    valor+="}";
+                }
 
                 if(c < qColunas-1) {
                     resultado+= `${valor} & `;
