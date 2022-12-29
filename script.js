@@ -16,11 +16,21 @@ function enviarParametroTabela(){
 
 
     campo = "<fieldset>";
+    campo+="<legend>Estilo da tabela:</legend>"
     campo += `<input type="radio" name="estilo" id="tab" value="t" checked>`;
     campo += `<label for="tab">Tabela</label>`;
     campo += `<input type="radio" name="estilo" id="quad" value="q">`;
-    campo += `<label for="quad">Quadro</label>`;
+    campo += `<label for="quad">Quadro</label>  <br>`;
+    campo += `<input type="checkbox" name="propTab" id="cabecalhoTab" value="cabecalho">`;
+    campo += `<label for="cabecalhoTab">Possui cabeçalho</label> <br>`;
+    campo += `<input type="checkbox" name="propTab" id="primLinhaNeg" value="primLinha">`;
+    campo += `<label for="primLinhaNeg">Primeira linha em negrito</label> <br>`;
+    campo += `<input type="checkbox" name="propTab" id="primColunaNeg" value="primColuna">`;
+    campo += `<label for="primColunaNeg">Primeira coluna em negrito</label>`;
     campo += `</fieldset>`;
+
+
+
     
 
     document.querySelector('#respostaDados').innerHTML = (titulo+tabela+campo);
@@ -38,10 +48,30 @@ function limparCampos(){
 
 
 function codigo(qLinhas, qColunas) {
+
+    let cab = false;
+    let pl = false;
+    let pc = false;
+
+    let _escolha = document.querySelector('input[name="estilo"]:checked').value;
+    let propriedades = document.getElementsByName('propTab');
+
+    for (var i = 0; i < propriedades.length; i++){
+        if ( propriedades[i].checked ) {
+            if(propriedades[i].value == "cabecalho"){
+                cab = true;
+            }else if (propriedades[i].value == "primLinha") {
+                pl = true;
+            }else if (propriedades[i].value == "primColuna") {
+                pc = true;
+            }
+        }
+    }
+    
   
     resultado = "<textarea rows='10' cols='40' maxlength='500'>";
 
-    resultado+= header(qColunas);
+    resultado+= header(qColunas, _escolha);
     for(l = 0; l < qLinhas; ++l) {
             for(c = 0; c < qColunas; ++c) {
                 let valor = document.querySelector(`#v${l}${c}`).value
@@ -54,7 +84,15 @@ function codigo(qLinhas, qColunas) {
                 }
                 
             }
-        resultado+=" \\\\ \n"
+        
+
+        resultado+=" \\\\ ";
+        if(l == 0 && cab) {
+            resultado+="\\hline";
+        }
+        if(_escolha == "q" && l < qLinhas-1)
+        {resultado+="\\hline"};
+        resultado+= "\n";
     }
 
     resultado+= final();
@@ -66,11 +104,11 @@ function codigo(qLinhas, qColunas) {
   
 }
 
-function header(colunas) {
+function header(colunas, escolha) {
 
     let titulo = document.querySelector('#captionTabela').value;
 
-    formatoTabular = tabEstilo(colunas);
+    formatoTabular = tabEstilo(colunas, escolha);
 
     _header =  "\\begin{table}[h]\n";
     _header += "\\centering\n";
@@ -89,8 +127,8 @@ function final() {
     return _final;
 }
 
-function tabEstilo(colunas) {
-    let _escolha = document.querySelector('input[name="estilo"]:checked').value;
+function tabEstilo(colunas, _escolha) {
+    
     _formatoTabular = "";
     _estilo = "";
     
