@@ -2,7 +2,7 @@
 
 # Sobre o projeto
 
-![Site da aplicação](https://guilhermesetim.github.io/construtor-tabela-latex/)
+Link do projeto: https://guilhermesetim.github.io/construtor-tabela-latex/
 
 Ferramenta web para construção facilitada de tabelas no formato LaTex, em que o usuário informa as propriedades da tabelas, seus respectivos valores, e recebe um código para copiar e colar em seu documento .tex
 
